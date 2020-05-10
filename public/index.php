@@ -17,11 +17,24 @@
           <a class="location" href="#">Адреса медицинских центров</a>
           <span class="phone-img"></span>
           <a class="phone" href="#"> +7 846 247 55 33</a>
-          <span class="results"></span>
-          <a class="results-img" href="#"></a>
+          <span class="results-img"></span>
+          <a class="results" href="#">Получить результаты</a>
+          <span class="sign-in-img"></span>
+          <a class="sign-in" href="#">Войти</a>
         </div>
+        <line class="hr"></line>
         <nav>
-          <!-- <a class="logo" href="/">IntroMed</a> -->
+          <a class="logo-img" href="/"></a>
+          <a class="logo-title" href="/">IntroMed</a>
+          <ul>
+            <a href="#"><li>О центре</li></a>
+            <a href="#"><li>Услуги и цены</li></a>
+            <a href="#"><li>Расписание</li></a>
+            <a href="#"><li>Клиники</li></a>
+            <a href="#"><li>Врачи</li></a>
+            <a href="#"><li>Контакты</li></a>
+            </ul>
+
         </nav>
       </div>
     </header>
