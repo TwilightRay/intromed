@@ -23,18 +23,21 @@
           <a class="sign-in" href="#">Войти</a>
         </div>
         <line class="hr"></line>
-        <nav>
-          <a class="logo-img" href="/"></a>
-          <a class="logo-title" href="/">IntroMed</a>
+        <nav class="nav">
+          <div class="home">
+            <a class="logo-img" href="/"></a>
+            <a class="logo-title" href="/">IntroMed</a>
+          </div>
           <ul>
-            <a href="#"><li>О центре</li></a>
-            <a href="#"><li>Услуги и цены</li></a>
-            <a href="#"><li>Расписание</li></a>
-            <a href="#"><li>Клиники</li></a>
-            <a href="#"><li>Врачи</li></a>
-            <a href="#"><li>Контакты</li></a>
-            </ul>
-
+            <li>
+              <a href="#">О центре</a>
+              <a href="#">Услуги и цены</a>
+              <a href="#">Расписание</a>
+              <a href="#">Клиники</a>
+              <a href="#">Врачи</a>
+              <a href="#">Контакты</a>
+            </li>
+          </ul>
         </nav>
       </div>
     </header>

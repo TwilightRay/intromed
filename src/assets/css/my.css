@@ -101,17 +101,35 @@ header{
 
 }
 
+nav{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 125px;
+}
+
+.nav ul {
+  display: flex;
+  margin: 0 125px;
+  align-items: center;
+} a {
+  margin-right: 43px;
+}
+
+.home{
+  display: flex;
+  align-items: center;
+}
+
 .logo-img{
   background-image: url(../img/icons/logo.png);
   width: 41px;
   height: 46px;
-  margin-left: 125px;
-  position: absolute;
+  margin: 18px 0;
+  margin-right: 17px;
 }
 
 .logo-title{
   font-family: Coustard;
   color: #FE6782;
   font-size: 24px;
-  margin-top: 33px;
 }
