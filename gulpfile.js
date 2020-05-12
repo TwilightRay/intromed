@@ -1,4 +1,4 @@
-const browserSync   = require('browser-sync').create(); // Создаем локальный сервер
+const browserSync   = require('browser-sync').create(), // Создаем локальный сервер
       del           = require('del'), // Подключаем библиотеку для удаления файлов
       gulp          = require('gulp'), // Подключаем Gulp
       autoprefixer  = require('gulp-autoprefixer'), // Подключаем библиотеку для автоматического добавления префиксов
@@ -9,7 +9,8 @@ const browserSync   = require('browser-sync').create(); // Создаем лок
       pngquant      = require('imagemin-pngquant'), // Подключаем библиотеку для работы с png
       webpack       = require('webpack'), // Подключаем Webpack
       webpackConfig = require('./webpack.config.js'), // Указываем путь конфига
-      webpackStream = require('webpack-stream'); // Подключаем webpack-stream
+      webpackStream = require('webpack-stream'), // Подключаем webpack-stream
+      rigger        = require('gulp-rigger');
 
 const paths = {
   root: './public',
@@ -18,7 +19,7 @@ const paths = {
     src: './src/*.php'
   },
   pages: {
-    src: './src/pages/*.php',
+    src: './src/pages/**/*.php',
     dest: './public/pages'
   },
   styles: {
@@ -44,6 +45,17 @@ const paths = {
     dest: './public/assets/php'
   }
 };
+
+gulp.task('static', function () { // Создаём таск
+  return gulp.src('./src/assets/static/**/*.*') // Берем источник
+    .pipe(gulp.dest('./public/assets/static')) // Выгружаем сборку
+});
+
+gulp.task('rigger', async function () {
+  gulp.src('./src/**/*.php')
+    .pipe(rigger())
+    .pipe(gulp.dest('./public'))
+});
 
 gulp.task('del', function () { // Создаем таск
   return del(paths.root) // Удаляем папку dist
@@ -96,6 +108,7 @@ gulp.task('php', function () {
 });
 
 gulp.task('watch', function () {
+  gulp.watch('src/**/*.php', gulp.parallel('rigger'));
   gulp.watch(paths.templates.src, gulp.parallel('templates')); // Наблюдаем за index
   gulp.watch(paths.pages.src, gulp.parallel('pages')); // Наблюдаем за php файлами
   gulp.watch(paths.styles.src, gulp.parallel('styles')); // Наблюдаем за SASS файлами
@@ -103,6 +116,7 @@ gulp.task('watch', function () {
   gulp.watch(paths.images.src, gulp.parallel('images')); // Наблюдаем за images
   gulp.watch(paths.fonts.src, gulp.parallel('fonts')); // Наблюдаем за fonts
   gulp.watch(paths.php.src, gulp.parallel('php')); // Наблюдаем за php
+  gulp.watch('./src/assets/static/**/*.*', gulp.parallel('static'));
 });
 
 gulp.task('browser-sync', function () { // Создаем таск browser-sync
@@ -113,4 +127,4 @@ gulp.task('browser-sync', function () { // Создаем таск browser-sync
   browserSync.watch(paths.src + '/**/*.*', browserSync.reload); // Перезагрузка при изменении
 });
 
-gulp.task('default', gulp.series('del', gulp.parallel('templates', 'pages', 'styles', 'scripts', 'images', 'fonts', 'php'), gulp.parallel('watch', 'browser-sync')));
+gulp.task('default', gulp.series('del', gulp.parallel('static' , 'rigger', 'templates', 'pages', 'styles', 'scripts', 'images', 'fonts', 'php'), gulp.parallel('watch', 'browser-sync')));

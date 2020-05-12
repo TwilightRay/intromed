@@ -42,13 +42,20 @@ header{
   max-width: 1416px;
 }
 
-.contact a {
+.contact{
+  position: fixed;
+  background-color: white;
+}
+
+.top a {
   margin-bottom: 17px;
   font-size: 14px;
   color: #847373;
   margin-top: 17px;
   display: inline-block;
-} span {
+}
+
+.top span {
   width: 16px;
   height: 16px;
   position: absolute;
@@ -98,21 +105,31 @@ header{
   background-color: #957979;
   opacity: 0.35;
   display: block;
+}
 
+.wrapper-nav{
+  transition: all .3s ease;
+  width: 1416px;
+  background-color: white;
 }
 
 nav{
   display: flex;
-  justify-content: space-between;
   margin: 0 125px;
+  justify-content: space-between;
 }
 
-.nav ul {
+nav ul {
   display: flex;
-  margin: 0 125px;
   align-items: center;
-} a {
+}
+
+nav ul li a {
   margin-right: 43px;
+}
+
+nav ul li a:last-child {
+  margin-right: 0px;
 }
 
 .home{
