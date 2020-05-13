@@ -1,13 +1,19 @@
+.gradient{
+width: auto;
+height: 64vh;
+background: linear-gradient(67.24deg, rgba(236, 84, 111, 0.6) 0.56%, rgba(93, 90, 236, 0.6) 99.11%);
+background-position: center center;
+background-repeat: no-repeat;
+}
+
 .doctors-img{
   background-image: url('../img/doctors.jpg');
-  background-size: cover;
   background-position: top center;
   width: auto;
-  height: 594px;
-  max-width: 100%;
-  transition: all 5s ease
+  height: 70vh;
+  background-repeat: no-repeat;
 }
 
 .conteiner{
-  margin-top: 150px;
+  margin-top: 40px;
 }

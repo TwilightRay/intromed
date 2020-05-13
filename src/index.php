@@ -19,8 +19,11 @@
     <main>
       <div class="wrapper">
         <section>
-          <div class="conteine">
-            <div class="doctors-img"></div>
+          <div class="conteiner">
+            <div class="doctors-img">
+              <div class="gradient">
+              </div>
+            </div>
           </div>
         </section>
       </div>
