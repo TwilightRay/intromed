@@ -54,6 +54,18 @@
           <div class="conteiner">
             <div class="doctors-img">
               <div class="gradient">
+                <div class="search-form">
+                  <form class="search" action="index.html" method="post">
+                    <h2 class="search-h">Простой поиск услуги</h2>
+                    <input
+                    class="search-input"
+                    type="text"
+                    placeholder="Введите специализацию, врача или услугу"
+                    >
+                    <p class="search-prompt">Например, <a href="#">вызов врача на дом</a></p>
+                  </form>
+                </div>
+
               </div>
             </div>
           </div>

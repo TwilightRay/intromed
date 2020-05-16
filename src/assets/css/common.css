@@ -1,9 +1,28 @@
+@font-face{
+  font-family:SFProDisplay;
+  src:url(../fonts/SFProDisplay/SFProDisplay-Regular.ttf);
+}
+
+*,:after,:before{
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box
+}
+
+body{
+font-family:SFProDisplay, sans-serif;
+font-size: 20px;
+/* overflow-x: hidden; */
+color: #06002E
+}
+
 .gradient{
 width: auto;
 height: 64vh;
 background: linear-gradient(67.24deg, rgba(236, 84, 111, 0.6) 0.56%, rgba(93, 90, 236, 0.6) 99.11%);
 background-position: center center;
 background-repeat: no-repeat;
+display: flex;
+justify-content: center;
 }
 
 .doctors-img{
@@ -16,4 +35,44 @@ background-repeat: no-repeat;
 
 .conteiner{
   margin-top: 40px;
+}
+
+.search-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-input{
+  width: 508px;
+  height: 51px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 2px solid #FFFFFF;
+  backdrop-filter: blur(5px);
+  border-radius: 50px;
+  padding-left: 32px;
+  color: white;
+}
+
+.search-h{
+  position: absolute;
+  width: 385px;
+  height: 51px;
+  left: 528px;
+  top: 276px;
+
+  font-family: Coustard;
+  font-size: 36px;
+  line-height: 51px;
+
+    color: #FFFFFF;
+}
+
+.search-prompt{
+  font-family: Coustard;
+  font-size: 13px;
+  line-height: 18px;
+
+  color: #FFFFFF;
+
 }
