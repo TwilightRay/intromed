@@ -65,12 +65,12 @@
                       id="search-img"
                       >
                       <span class="search-img"></span>
+                      <p class="search-prompt">Например, <a class="search-prompt-a" href="#">вызов врача на дом</a></p>
                     </div>
-                    <p class="search-prompt">Например, <a class="search-prompt-a" href="#">вызов врача на дом</a></p>
+                    </form>
                     <a class="btn-white" id="btn-white1" href="#">Записаться на прием</a>
                     <a class="btn-white" id="btn-white2" href="#">Диагностика</a>
                     <a class="btn-white" id="btn-white3" href="#">Реабилитация</a>
-                  </form>
                 </div>
               </div>
               <p class="p-description">Клиника IntroMed  объединяет профессионализм, достижения научной медецины
