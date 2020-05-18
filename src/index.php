@@ -24,17 +24,26 @@
               <div class="gradient">
                 <div class="search-form">
                   <form class="search" action="index.html" method="post">
-                    <h2 class="search-h">Простой поиск услуги</h2>
-                    <input
-                    class="search-input"
-                    type="text"
-                    placeholder="Введите специализацию, врача или услугу"
-                    >
-                    <p class="search-prompt">Например, <a href="#">вызов врача на дом</a></p>
+                    <div class="search-service">
+                      <h2 class="search-h">Простой поиск услуги</h2>
+                      <input
+                      class="search-input"
+                      type="search"
+                      placeholder="Введите специализацию, врача или услугу"
+                      id="search-img"
+                      >
+                      <span class="search-img"></span>
+                    </div>
+                    <p class="search-prompt">Например, <a class="search-prompt-a" href="#">вызов врача на дом</a></p>
+                    <a class="btn-white" id="btn-white1" href="#">Записаться на прием</a>
+                    <a class="btn-white" id="btn-white2" href="#">Диагностика</a>
+                    <a class="btn-white" id="btn-white3" href="#">Реабилитация</a>
                   </form>
                 </div>
-
               </div>
+              <p class="p-description">Клиника IntroMed  объединяет профессионализм, достижения научной медецины
+                и передовые технологии, используя многолетний опыт для создания идеальных
+                условий организации мер по восстановлению и охране здоровья населения.</p>
             </div>
           </div>
         </section>
