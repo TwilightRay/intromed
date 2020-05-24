@@ -19,6 +19,7 @@ header{
   width: 100vw;
   height: 84px;
   background-color: white;
+  z-index: 2;
 }
 
 .wrapper{
@@ -89,6 +90,7 @@ header{
   background-color: #957979;
   opacity: 0.35;
   display: block;
+  margin-right: 7px;
 }
 
 .wrapper-nav{
