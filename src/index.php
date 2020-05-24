@@ -90,15 +90,22 @@
         </section2>
         <section3>
           <div class="form-back">
-            <form class="" action="index.html" method="post">
+            <form class="making-an-appointment" action="index.html" method="post">
               <h2>Записаться на прием</h2>
-              <p>Имя</p>
-              <input type="text" name="" placeholder="Имя для обращения">
-              <p>Телефон</p>
-              <input type="text" name="" placeholder="Номер для связи">
-              <p>Филиал</p>
-              <input type="text" name="" placeholder="Выберите из списка">
-              <input type="checkbox" name="" value="Согласие на обработку персональных данных">
+                <div>
+                  <label>Имя</label>
+                  <input type="text" name="" placeholder="Имя для обращения">
+                </div>
+                <div>
+                  <label>Телефон</label>
+                  <input type="text" name="" placeholder="Номер для связи">
+                </div>
+                <div>
+                  <label>Филиал</label>
+                  <input type="text" name="" placeholder="Выберите из списка">
+                </div>
+              <input type="checkbox" name="">
+              <label for="">Согласие на обработку персональных данных</label>
               <button type="submit" name="send">Отправить</button>
             </form>
           </div>

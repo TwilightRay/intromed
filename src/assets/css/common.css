@@ -309,10 +309,10 @@ section2{
 
 .slide {
   margin-top: 350px;
-  width: 1193px;
   height: 306px;
   position: relative;
   text-align: center;
+  margin-bottom: 95px;
 }
 .slide  input {
     display: none;
@@ -382,7 +382,21 @@ img {
     text-shadow: 2px 2px 3px #222;
 }
 
+section3{
+  margin: 0 auto;
+  background-image: url(../../assets/img/form-back.png);
+  display: flex;
+  width: 1409px;
+  height: 677px;
+  align-items: center;
+  justify-content: center;
+}
+
 .footer{
-  background-image: url(./assets/img/footer.png);
+  background-image: url(../../assets/img/footer.png);
   display: block;
+  width: 1409px;
+  height: 540px;
+  align-items: center;
+  justify-content: center;
 }
