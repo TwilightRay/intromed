@@ -56,15 +56,27 @@
           <div class="wrapper">
             <div class="services">
               <p class="services-p">Популярные виды услуг</p>
-              <a class="services-btn">Все услуги</a>
+              <a href="#" class="services-btn">Все услуги</a>
             </div>
             <div class="grid">
-              <div class="item1"><span class="img-1 span-right"></span>Консультация специалистов</div>
-              <div class="item1"><span class="img-4 span-left"></span>Лечение</div>
-              <div class="item"><span class="img-2 span-right"></span>Медосмотр</div>
-              <div class="item"><span class="img-5 span-left"></span>Хирургия</div>
-              <div class="item1"><span class="img-3 span-right"></span>Диагностика</div>
-              <div class="item1"><span class="img-6 span-left"></span>Реабилитация</div>
+              <div class="item1"><span class="img-1 start span-right"></span>
+                <a href="#">Консультация специалистов</a>
+              </div>
+              <div class="item1"><span class="img-4 start span-left"></span>
+                <a href="#">Лечение</a>
+              </div>
+              <div class="item"><span class="img-2 start span-right"></span>
+                <a href="#">Медосмотр</a>
+              </div>
+              <div class="item"><span class="img-5 start span-left"></span>
+                <a href="#">Хирургия</a>
+              </div>
+              <div class="item1"><span class="img-3 start span-right"></span>
+              <a href="#">Диагностика</a>
+              </div>
+              <div class="item1"><span class="img-6 start span-left"></span>
+                <a href="#">Реабилитация</a>
+              </div>
             </div>
             <div class="slide">
               <input type="radio" name="slider2" id="slider2_1" checked="checked">
@@ -91,22 +103,36 @@
         <section3>
           <div class="form-back">
             <form class="making-an-appointment" action="index.html" method="post">
-              <h2>Записаться на прием</h2>
-                <div>
+              <p class="ti">Записаться на прием</p>
+              <div class="an-appointment">
+                <div class="an">
                   <label>Имя</label>
-                  <input type="text" name="" placeholder="Имя для обращения">
+                  <input class="making-input appointment" type="text" name="" placeholder="Имя для обращения">
                 </div>
-                <div>
+                <div class="an">
                   <label>Телефон</label>
-                  <input type="text" name="" placeholder="Номер для связи">
+                  <input class="making-input appointment" type="text" name="" placeholder="Номер для связи">
                 </div>
-                <div>
+                <div class="an">
                   <label>Филиал</label>
-                  <input type="text" name="" placeholder="Выберите из списка">
+                  <select class="making-input appointment" name="">
+                    <option selected="selected" value="one">​
+                      Дианова, 4
+                    </option>
+                    <option value="two">
+                      ​Карла Маркса проспект, 18/28
+                    </option>
+                    <option value="there">
+                      ​​70 лет Октября, 16/4
+                    </option>
+                  </select>
                 </div>
-              <input type="checkbox" name="">
-              <label for="">Согласие на обработку персональных данных</label>
-              <button type="submit" name="send">Отправить</button>
+                <div class="">
+                  <input class="checked" id="c1" type="checkbox">
+                  <label class="ap" for="c1">Согласие на обработку персональных данных</label>
+                </div>
+              </div>
+              <button class="btn-making" type="submit" name="send">Отправить</button>
             </form>
           </div>
         </section3>
