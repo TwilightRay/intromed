@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
@@ -8,45 +9,79 @@
     <title>IntroMed</title>
     <link rel="stylesheet" href="../assets/css/header.min.css"/>
     <link rel="stylesheet" href="../assets/css/common.min.css"/>
-    <!--script(src="https://kit.fontawesome.com/b276d03c30.js" crossorigin="anonymous")-->
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="../assets/css/signin.min.css">
     <link rel="shortcut icon" href="/assets/static/favicon.ico" type="image/x-icon">
   </head>
   <body>
     <header>
-      <div class="wrapper">
-        <div class="contact">
-          <div class="top">
-            <span class="location-img"></span>
-            <a class="location" href="#">Адреса медицинских центров</a>
-            <span class="phone-img"></span>
-            <a class="phone" href="#"> +7 846 247 55 33</a>
-            <span class="results-img"></span>
-            <a class="results" href="#">Получить результаты</a>
-            <span class="sign-in-img"></span>
-            <a class="sign-in" href="#">Войти</a>
-            <line class="hr"></line>
-          </div>
-          <div class="wrapper-nav">
-            <nav class="nav">
-              <div class="home">
-                <a class="logo-img" href="/"></a>
-                <a class="logo-title" href="/">IntroMed</a>
+            <div class="wrapper">
+              <div class="contact">
+                <div class="top">
+                  <p><?php echo $_SESSION['message']; unset($_SESSION['message']);?></p>
+                  <span class="location-img"></span>
+                  <a class="location" href="#">Адреса медицинских центров</a>
+                  <span class="phone-img"></span>
+                  <a class="phone" href="#"> +7 846 247 55 33</a>
+                  <span class="results-img"></span>
+                  <a class="results" href="#">Получить результаты</a>
+                  <span class="sign-in-img"></span>
+                  <?php if ($_SESSION['user']): ?>
+                    <p><?=$_SESSION['user']['name']?></p>
+                    <a href="../assets/php/logout.php">Выйти</a>
+                  <?php else: ?>
+                    <a class="sign-in" href="#" onclick="openFormSignIn()">Войти</a>
+                  <?php endif; ?>
+                  <line class="hr"></line>
+                </div>
+                <div class="form-popup" id="signIn">
+                  <form action="assets/php/in.php" method="post" class="form-container">
+                    <h2>Авторизация</h2>
+                  <label for="email"><b>Е-мейл</b></label>
+                    <input type="email" placeholder="Ваш е-мейл" name="email" required>
+                  <label for="password"><b>Пароль</b></label>
+                    <input type="password" placeholder="Ваш Пароль" name="password" required>
+                      <div class="signup-btn">
+                        <p class="signup-btn">Ещё нет аккаунта?</p>
+                        <a href="#" onclick="openFormSignUp()">Зарегистрироваться</a>
+                      </div>
+                  <p></p>
+                    <button type="submit" class="btn">Войти</button>
+                    <button type="button" class="btn cancel" onclick="closeFormSignIn()">Закрыть</button>
+                  </form>
+                </div>
+                <div class="form-popup" id="signUp">
+                  <form action="assets/php/up.php" method="post" class="form-container">
+                    <h2>Регистрация</h2>
+                    <label for="name"><b>Имя</b></label>
+                    <input type="text" placeholder="Ваше имя" name="name" required>
+                  <label for="email"><b>Е-мейл</b></label>
+                    <input type="email" placeholder="Ваш е-мейл" name="email" required>
+                  <label for="password"><b>Пароль</b></label>
+                    <input type="password" placeholder="Ваш Пароль" name="password" required>
+                    <button type="submit" class="btn">Зарегистрироваться</button>
+                    <button type="button" class="btn cancel" onclick="closeFormSignUp()">Закрыть</button>
+                  </form>
+                </div>
+                <div class="wrapper-nav">
+                  <nav class="nav">
+                    <div class="home">
+                      <a class="logo-img" href="/"></a>
+                      <a class="logo-title" href="/">IntroMed</a>
+                    </div>
+                    <ul>
+                      <li>
+                        <a href="#">О центре</a>
+                        <a href="#">Услуги и цены</a>
+                        <a href="#">Расписание</a>
+                        <a href="#">Клиники</a>
+                        <a href="#">Врачи</a>
+                        <a href="#">Контакты</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
               </div>
-              <ul>
-                <li>
-                  <a href="#">О центре</a>
-                  <a href="#">Услуги и цены</a>
-                  <a href="#">Расписание</a>
-                  <a href="#">Клиники</a>
-                  <a href="#">Врачи</a>
-                  <a href="#">Контакты</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
+            </div>
     </header>
     <main>
       <div class="wrapper">
@@ -58,19 +93,22 @@
                   <form class="search" action="index.html" method="post">
                     <div class="search-service">
                       <h2 class="search-h">Простой поиск услуги</h2>
-                      <input
-                      class="search-input"
-                      type="search"
-                      placeholder="Введите специализацию, врача или услугу"
-                      id=""
-                      >
-                      <span class="search-img"></span>
+                      <input list="services" class="search-input" placeholder="Введите специализацию, врача или услугу" id="search">
+                      <datalist id="services">
+                        <option value="Консультация специалистов">
+                        <option value="Медосмотр">
+                        <option value="Диагностика">
+                        <option value="Лечение">
+                        <option value="Хирургия">
+                        <option value="Реабилитация">
+                      </datalist>
+                      <span class="search-img" onclick="search()"></span>
                       <p class="search-prompt">Например, <a class="search-prompt-a" href="#">вызов врача на дом</a></p>
                     </div>
-                    </form>
-                    <a class="btn-white white-img1" href="#">Записаться на прием</a>
-                    <a class="btn-white white-img2" href="#">Диагностика</a>
-                    <a class="btn-white white-img3" href="#">Реабилитация</a>
+                  </form>
+                  <a class="btn-white white-img1" href="#">Записаться на прием</a>
+                  <a class="btn-white white-img2" href="#">Диагностика</a>
+                  <a class="btn-white white-img3" href="#">Реабилитация</a>
                 </div>
               </div>
                 <div class="about">
@@ -134,33 +172,33 @@
         </section2>
         <section3>
           <div class="form-back">
-            <form class="making-an-appointment" action="index.html" method="post">
+            <form class="making-an-appointment" action="assets/php/send.php" method="post">
               <p class="ti">Записаться на прием</p>
               <div class="an-appointment">
                 <div class="an">
                   <label>Имя</label>
-                  <input class="making-input appointment" type="text" name="" placeholder="Имя для обращения">
+                  <input class="making-input appointment" type="text" name="name" placeholder="Имя для обращения">
                 </div>
                 <div class="an">
                   <label>Телефон</label>
-                  <input class="making-input appointment" type="text" name="" placeholder="Номер для связи">
+                  <input class="making-input appointment" type="text" name="phone" placeholder="Номер для связи">
                 </div>
                 <div class="an">
                   <label>Филиал</label>
-                  <select class="making-input appointment" name="">
-                    <option selected="selected" value="one">​
+                  <select class="making-input appointment" name="branch">
+                    <option selected="selected" value="Дианова, 4">​
                       Дианова, 4
                     </option>
-                    <option value="two">
+                    <option value="Карла Маркса проспект, 18/28">
                       ​Карла Маркса проспект, 18/28
                     </option>
-                    <option value="there">
+                    <option value="​​70 лет Октября, 16/4">
                       ​​70 лет Октября, 16/4
                     </option>
                   </select>
                 </div>
                 <div class="">
-                  <input class="checked" id="c1" type="checkbox">
+                  <input class="checked" id="c1" type="checkbox" name="checkbox">
                   <label class="ap" for="c1">Согласие на обработку персональных данных</label>
                 </div>
               </div>
@@ -174,5 +212,6 @@
 <span class="footer"></span>
 </div>
     </footer>
+    <script type="text/javascript" src="assets\js\main.js"></script>
   </body>
 </html>

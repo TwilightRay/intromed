@@ -3,6 +3,10 @@
   src:url(../fonts/SFProDisplay/SFProDisplay-Regular.ttf);
 }
 
+input::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
 *,:after,:before{
   -webkit-box-sizing:border-box;
   box-sizing:border-box
@@ -51,7 +55,7 @@ align-items: center;
 }
 
 .search-input{
-  width: 508px;
+  width: -webkit-fill-available;
   height: 51px;
   background: rgba(255, 255, 255, 0.02);
   border: 2px solid #FFFFFF;
@@ -156,7 +160,7 @@ align-items: center;
   background-repeat: no-repeat;
   background-position: 23px;
   background-size: 39px;
-  padding-left: 70px;
+  padding-left: 65px;
   margin-right: 33px;
 }
 
@@ -166,7 +170,7 @@ align-items: center;
   background-repeat: no-repeat;
   background-position: 45px;
   background-size: 39px;
-  padding-left: 100px;
+  padding-left: 90px;
   margin-right: 33px;
 }
 
@@ -322,6 +326,7 @@ section2{
   position: relative;
   text-align: center;
   margin-bottom: 95px;
+  z-index: 0;
 }
 .slide  input {
     display: none;

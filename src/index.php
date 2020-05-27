@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
@@ -8,13 +9,12 @@
     <title>IntroMed</title>
     <link rel="stylesheet" href="../assets/css/header.min.css"/>
     <link rel="stylesheet" href="../assets/css/common.min.css"/>
-    <!--script(src="https://kit.fontawesome.com/b276d03c30.js" crossorigin="anonymous")-->
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="../assets/css/signin.min.css">
     <link rel="shortcut icon" href="/assets/static/favicon.ico" type="image/x-icon">
   </head>
   <body>
     <header>
-//= ./pages/sections/header.php
+      //= ./pages/sections/header.php
     </header>
     <main>
       <div class="wrapper">
@@ -26,19 +26,22 @@
                   <form class="search" action="index.html" method="post">
                     <div class="search-service">
                       <h2 class="search-h">Простой поиск услуги</h2>
-                      <input
-                      class="search-input"
-                      type="search"
-                      placeholder="Введите специализацию, врача или услугу"
-                      id=""
-                      >
-                      <span class="search-img"></span>
+                      <input list="services" class="search-input" placeholder="Введите специализацию, врача или услугу" id="search">
+                      <datalist id="services">
+                        <option value="Консультация специалистов">
+                        <option value="Медосмотр">
+                        <option value="Диагностика">
+                        <option value="Лечение">
+                        <option value="Хирургия">
+                        <option value="Реабилитация">
+                      </datalist>
+                      <span class="search-img" onclick="search()"></span>
                       <p class="search-prompt">Например, <a class="search-prompt-a" href="#">вызов врача на дом</a></p>
                     </div>
-                    </form>
-                    <a class="btn-white white-img1" href="#">Записаться на прием</a>
-                    <a class="btn-white white-img2" href="#">Диагностика</a>
-                    <a class="btn-white white-img3" href="#">Реабилитация</a>
+                  </form>
+                  <a class="btn-white white-img1" href="#">Записаться на прием</a>
+                  <a class="btn-white white-img2" href="#">Диагностика</a>
+                  <a class="btn-white white-img3" href="#">Реабилитация</a>
                 </div>
               </div>
                 <div class="about">
@@ -102,33 +105,33 @@
         </section2>
         <section3>
           <div class="form-back">
-            <form class="making-an-appointment" action="index.html" method="post">
+            <form class="making-an-appointment" action="assets/php/send.php" method="post">
               <p class="ti">Записаться на прием</p>
               <div class="an-appointment">
                 <div class="an">
                   <label>Имя</label>
-                  <input class="making-input appointment" type="text" name="" placeholder="Имя для обращения">
+                  <input class="making-input appointment" type="text" name="name" placeholder="Имя для обращения">
                 </div>
                 <div class="an">
                   <label>Телефон</label>
-                  <input class="making-input appointment" type="text" name="" placeholder="Номер для связи">
+                  <input class="making-input appointment" type="text" name="phone" placeholder="Номер для связи">
                 </div>
                 <div class="an">
                   <label>Филиал</label>
-                  <select class="making-input appointment" name="">
-                    <option selected="selected" value="one">​
+                  <select class="making-input appointment" name="branch">
+                    <option selected="selected" value="Дианова, 4">​
                       Дианова, 4
                     </option>
-                    <option value="two">
+                    <option value="Карла Маркса проспект, 18/28">
                       ​Карла Маркса проспект, 18/28
                     </option>
-                    <option value="there">
+                    <option value="​​70 лет Октября, 16/4">
                       ​​70 лет Октября, 16/4
                     </option>
                   </select>
                 </div>
                 <div class="">
-                  <input class="checked" id="c1" type="checkbox">
+                  <input class="checked" id="c1" type="checkbox" name="checkbox">
                   <label class="ap" for="c1">Согласие на обработку персональных данных</label>
                 </div>
               </div>
@@ -140,5 +143,6 @@
     <footer>
 //= ./pages/sections/footer.php
     </footer>
+    <script type="text/javascript" src="assets\js\main.js"></script>
   </body>
 </html>
