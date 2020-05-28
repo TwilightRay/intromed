@@ -27,7 +27,7 @@ header{
   max-width: 1416px;
 }
 
-.contact{
+.contacts{
   position: fixed;
   background-color: white;
 }
@@ -54,7 +54,11 @@ header{
 
 .phone{
     margin-left: 20px;
-    margin-right: 540px;
+    margin-right: 520px;
+}
+
+.profile{
+  margin-left: 20px;
 }
 
 .results{
@@ -63,8 +67,12 @@ header{
 }
 
 .sign-in{
-    margin-left: 18px;
+    margin-left: 32px;
     margin-right: 125px;
+}
+
+.logout{
+    margin-left: 32px;
 }
 
 .location-img{
@@ -112,6 +120,7 @@ nav ul {
 
 nav ul li a {
   margin-right: 43px;
+  color: #06002E;
 }
 
 nav ul li a:last-child {

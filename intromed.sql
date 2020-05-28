@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Хост: 127.0.0.1:3306
--- Время создания: Май 27 2020 г., 17:33
--- Версия сервера: 10.3.13-MariaDB-log
--- Версия PHP: 7.1.32
+-- Host: localhost
+-- Generation Time: May 28, 2020 at 08:27 AM
+-- Server version: 10.4.12-MariaDB
+-- PHP Version: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `intromed`
+-- Database: `intromed`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `reception`
+-- Table structure for table `reception`
 --
 
 CREATE TABLE `reception` (
@@ -36,7 +35,7 @@ CREATE TABLE `reception` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `reception`
+-- Dumping data for table `reception`
 --
 
 INSERT INTO `reception` (`id`, `name`, `phone`, `branch`) VALUES
@@ -46,7 +45,31 @@ INSERT INTO `reception` (`id`, `name`, `phone`, `branch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `users`
+-- Table structure for table `service`
+--
+
+CREATE TABLE `service` (
+  `id` int(11) NOT NULL,
+  `name` varchar(32) NOT NULL,
+  `url` varchar(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `service`
+--
+
+INSERT INTO `service` (`id`, `name`, `url`) VALUES
+(1, 'Консультация специалистов', 'pages/consultation.php'),
+(2, 'Медосмотр', 'pages/bodycheck.php'),
+(3, 'Диагностика', 'pages/diagnostics.php'),
+(4, 'Лечение', 'pages/Treatment.php'),
+(5, 'Хирургия', 'pages/surgery.php'),
+(6, 'Реабилитация', 'pages/rehabilitation.php');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -57,7 +80,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
@@ -65,33 +88,45 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
 (2, 'Alan Walker', 'walkz@gmail.com', '3675ac5c859c806b26e02e6f9fd62192');
 
 --
--- Индексы сохранённых таблиц
+-- Indexes for dumped tables
 --
 
 --
--- Индексы таблицы `reception`
+-- Indexes for table `reception`
 --
 ALTER TABLE `reception`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `users`
+-- Indexes for table `service`
+--
+ALTER TABLE `service`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT для сохранённых таблиц
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT для таблицы `reception`
+-- AUTO_INCREMENT for table `reception`
 --
 ALTER TABLE `reception`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT для таблицы `users`
+-- AUTO_INCREMENT for table `service`
+--
+ALTER TABLE `service`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

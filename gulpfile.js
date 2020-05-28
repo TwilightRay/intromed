@@ -32,6 +32,10 @@ const paths = {
     src: './src/assets/js/**/*.js',
     dest: './public/assets/js'
   },
+  modules:{
+    src: './src/assets/js/modules/**/*.js',
+    dest: './public/assets/js/modules'
+  },
   images: {
     src: './src/assets/img/**/*.*',
     dest: './public/assets/img'
@@ -86,6 +90,11 @@ gulp.task('scripts', function () { // Создаем таск
     .pipe(gulp.dest(paths.scripts.dest)) // Выгружаем сборку
 });
 
+gulp.task('modules', function () { // Создаем таск
+  return gulp.src(paths.modules.src) // Берем источник
+    .pipe(gulp.dest(paths.modules.dest)) // Выгружаем сборку
+})
+
 gulp.task('images', function () { // Создаем таск
   return gulp.src(paths.images.src) // Берем источник
     .pipe(imagemin({ // Сжимаем изображения
@@ -113,6 +122,7 @@ gulp.task('watch', function () {
   gulp.watch(paths.pages.src, gulp.parallel('pages')); // Наблюдаем за php файлами
   gulp.watch(paths.styles.src, gulp.parallel('styles')); // Наблюдаем за SASS файлами
   gulp.watch(paths.scripts.src, gulp.parallel('scripts')); // Наблюдаем за JS файлами
+  gulp.watch(paths.modules.src, gulp.parallel('modules')); // Наблюдаем за модулями
   gulp.watch(paths.images.src, gulp.parallel('images')); // Наблюдаем за images
   gulp.watch(paths.fonts.src, gulp.parallel('fonts')); // Наблюдаем за fonts
   gulp.watch(paths.php.src, gulp.parallel('php')); // Наблюдаем за php
@@ -127,4 +137,4 @@ gulp.task('browser-sync', function () { // Создаем таск browser-sync
   browserSync.watch(paths.src + '/**/*.*', browserSync.reload); // Перезагрузка при изменении
 });
 
-gulp.task('default', gulp.series('del', gulp.parallel('static' , 'rigger', 'templates', 'pages', 'styles', 'scripts', 'images', 'fonts', 'php'), gulp.parallel('watch', 'browser-sync')));
+gulp.task('default', gulp.series('del', gulp.parallel('static' , 'rigger', 'templates', 'pages', 'styles', 'scripts', 'modules', 'images', 'fonts', 'php'), gulp.parallel('watch', 'browser-sync')));
