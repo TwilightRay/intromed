@@ -1,37 +1,4 @@
-<?php
-session_start();
-
-if (isset($_REQUEST['logout'])) {
-  unset($_SESSION['user']); header('Location: /');
-}
-
-if (!$_SESSION['user']) {
-  header('Location: /');
-}
-
-if (isset($_REQUEST['logout'])) {
-  unset($_SESSION['user']);
-  header('Location: /');
-}
-
-$host = "localhost";
-$user = "mysql";
-$password = "mysql";
-$database = "intromed";
-
-$link = mysqli_connect($host, $user, $password, $database);
-
-$query = 'SELECT * FROM `reception` WHERE users="'.$_SESSION['user']['id'].'"';
-$data = $link->query($query);
-
-if (isset($_GET["delete"])) {
-  $query = "DELETE FROM `reception` WHERE `id` = {$_GET['delete']}"; //удаляем данные
-  mysqli_query($link, $query);
-  header("Location: сoupons.php"); //перенаправляем на нужную страницу
-  exit(); //прерываем работу скрипта
-}
-
-?>
+<?php session_start(); if (isset($_REQUEST['logout'])) {unset($_SESSION['user']); header('Location: /');} if (!$_SESSION['user']) {header('Location: signin.php');} ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -58,7 +25,7 @@ if (isset($_GET["delete"])) {
                   <a class="results" href="#">Получить результаты</a>
                   <span class="sign-in-img"></span>
                   <?php if ($_SESSION['user']): ?>
-                    <a class="profile" href="pages/profile.php"><?=$_SESSION['user']['name']?></a>
+                    <a class="profile" href="profile.php"><?=$_SESSION['user']['name']?></a>
                     <a class="logout" href="../assets/php/logout.php">Выйти</a>
                   <?php else: ?>
                     <a class="sign-in" href="#" onclick="openFormSignIn()">Войти</a>
@@ -123,29 +90,35 @@ if (isset($_GET["delete"])) {
             <ul class="nav-user">
               <li>
                 <div class="">
-                  <a class="data" href="profile.php">Личные данные</a>
+                  <a class="data" href="profile.php" style="color: #fe6782;">Личные данные</a>
                 </div>
                 <div class="">
-                  <a class="teams" href="сoupons.php" style="color: #fe6782;">Мои талоны</a>
+                  <a class="teams" href="сoupons.php">Мои талоны</a>
                 </div>
               </li>
             </ul>
           </div>
-          <div class="user-teams">
-            <h2 class="title-teams">Мои талоны</h2>
-            <p style="text-align: center">Список ваших талонов.</p>
-            <div class="box-myteams">
-              <?php while($reception = mysqli_fetch_assoc($data)): ?>
-                <div class="<?=$reception['name']?>">
-                  <div class="box">
-                    <p class="name-teams"><?=$reception['name']?></p>
-                    <a class="delete" href="?delete=<?=$reception['id']?>">Удалить</a>
-                    <p class="about-teams"><?=$reception['phone']?></p>
-                    <p class="about-teams"><?=$reception['branch']?></p>
-                  </div>
-                </div>
-              <?php endwhile; ?>
-            </div>
+          <div class="user">
+            <h2 class="title-profil">Личные данные</h2>
+            <p style="text-align: center;">Основная информация, которую вы используете на этом сайте.</p>
+            <form action="" method="post">
+              <div class="email">
+                <label for="">Email</label>
+                <input type="email" name="email" value="<?=$_SESSION['user']['email']?>">
+              </div>
+              <div class="name">
+                <label for="">ИМЯ</label>
+                <input type="text" name="name" value="<?=$_SESSION['user']['name']?>">
+              </div>
+              <div class="password">
+                <label for="">Пароль</label>
+                <input type="password" name="password" value="<?=$_SESSION['user']['password']?>" placeholder="Введите новый пароль">
+              </div>
+              <div class="response">
+                <p class="message"><?php echo $_SESSION['message']; unset($_SESSION['message']);?></p>
+                <button class='save' type='submit' name='save'>Сохранить</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

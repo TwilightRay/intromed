@@ -1,0 +1,14 @@
+.td-p{
+  padding: 8px;
+  vertical-align: middle;
+}
+
+.td-pink{
+  background-color: #F9DDE2;
+}
+
+.td-price{
+  font-family: segoeb;
+  text-align: center;
+  width: 25%;
+}

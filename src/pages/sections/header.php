@@ -55,7 +55,7 @@
               <ul>
                 <li>
                   <a href="#">О центре</a>
-                  <a href="#">Услуги и цены</a>
+                  <a href="\pages\services-and-prices.php">Услуги и цены</a>
                   <a href="#">Расписание</a>
                   <a href="#">Клиники</a>
                   <a href="#">Врачи</a>

@@ -56,7 +56,7 @@ gulp.task('static', function () { // Создаём таск
 });
 
 gulp.task('rigger', async function () {
-  gulp.src('./src/**/*.php')
+  gulp.src('./src/pages/**/*.php')
     .pipe(rigger())
     .pipe(gulp.dest('./public'))
 });
