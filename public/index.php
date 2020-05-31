@@ -106,7 +106,7 @@ if (isset($_POST['search'])) {
     <main>
       <div class="wrapper">
         <section1>
-          <div class="conteiner">
+          <div class="container">
             <div class="doctors-img">
               <div class="gradient">
                 <div class="search-form">

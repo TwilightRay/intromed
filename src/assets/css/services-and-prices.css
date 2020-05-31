@@ -12,3 +12,19 @@
   text-align: center;
   width: 25%;
 }
+
+*{
+  margin: 0;
+}
+
+.container{
+  margin-top: 120px;
+  display: inline-block;
+}
+
+.prices{
+  color: #0d0065;
+  text-align: center;
+  justify-content: center;
+  margin: 30px;
+}
