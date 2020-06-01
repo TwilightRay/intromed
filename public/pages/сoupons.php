@@ -139,9 +139,9 @@ if (isset($_GET["delete"])) {
                 <div class="<?=$reception['name']?>">
                   <div class="box">
                     <p class="name-teams"><?=$reception['name']?></p>
-                    <a class="delete" href="?delete=<?=$reception['id']?>">Удалить</a>
                     <p class="about-teams"><?=$reception['phone']?></p>
                     <p class="about-teams"><?=$reception['branch']?></p>
+                    <a class="delete" href="?delete=<?=$reception['id']?>">Удалить</a>
                   </div>
                 </div>
               <?php endwhile; ?>
