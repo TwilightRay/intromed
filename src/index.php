@@ -16,7 +16,6 @@ if (isset($_POST['search'])) {
   $service = mysqli_fetch_assoc($data);
   header("Location: ".$service['url']);
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">

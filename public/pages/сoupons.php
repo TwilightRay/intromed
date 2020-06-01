@@ -25,10 +25,10 @@ $query = 'SELECT * FROM `reception` WHERE users="'.$_SESSION['user']['id'].'"';
 $data = $link->query($query);
 
 if (isset($_GET["delete"])) {
-  $query = "DELETE FROM `reception` WHERE `id` = {$_GET['delete']}"; //удаляем данные
+  $query = "DELETE FROM `reception` WHERE `id` = {$_GET['delete']}";
   mysqli_query($link, $query);
-  header("Location: сoupons.php"); //перенаправляем на нужную страницу
-  exit(); //прерываем работу скрипта
+  header("Location: сoupons.php");
+  exit();
 }
 
 ?>
