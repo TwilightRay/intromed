@@ -1,6 +1,15 @@
+@font-face{
+  font-family:SFProDisplay;
+  src:url(../fonts/SFProDisplay/SFProDisplay-Regular.ttf);
+}
+
 body,ul{
   margin:0;
-  padding:0
+  padding:0;
+  font-family: SFProDisplay,sans-serif;
+  font-size: 20px;
+  overflow-x: hidden;
+  color: #06002E
 }
 
 ul{
@@ -27,8 +36,8 @@ header{
   max-width: 1416px;
 }
 
-.contact{
-  position: fixed;
+.contacts{
+  /* position: fixed; */
   background-color: white;
 }
 

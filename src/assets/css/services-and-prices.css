@@ -1,6 +1,7 @@
 .td-p{
   padding: 8px;
   vertical-align: middle;
+  width: 1000px;
 }
 
 .td-pink{
@@ -18,8 +19,7 @@
 }
 
 .container{
-  margin-top: 120px;
-  display: inline-block;
+  margin-left: 110px;
 }
 
 .prices{
@@ -27,4 +27,21 @@
   text-align: center;
   justify-content: center;
   margin: 30px;
+}
+
+.dropdown-list {
+  display: none;
+  margin-top: 20px;
+}
+
+.userdata{
+  font-size: 24px;
+}
+
+ul{
+  max-width: 1200px;
+}
+
+.dropdown{
+  margin-bottom: 20px;
 }

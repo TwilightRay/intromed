@@ -127,8 +127,8 @@ if (isset($_POST['search'])) {
                     </div>
                   </form>
                   <a class="btn-white white-img1" href="#section3">Записаться на прием</a>
-                  <a class="btn-white white-img2" href="#">Диагностика</a>
-                  <a class="btn-white white-img3" href="#">Реабилитация</a>
+                  <a class="btn-white white-img2" href="pages\diagnostics.php">Диагностика</a>
+                  <a class="btn-white white-img3" href="pages\rehabilitation.php">Реабилитация</a>
                 </div>
               </div>
                 <div class="about">
@@ -146,26 +146,26 @@ if (isset($_POST['search'])) {
           <div class="wrapper">
             <div class="services">
               <p class="services-p">Популярные виды услуг</p>
-              <a href="#" class="services-btn">Все услуги</a>
+              <a href="\pages\services-and-prices.php" class="services-btn">Все услуги</a>
             </div>
             <div class="grid">
               <div class="item1"><span class="img-1 start span-right"></span>
-                <a href="#">Консультация специалистов</a>
+                <a href="pages\consultation.php">Консультация специалистов</a>
               </div>
               <div class="item1"><span class="img-4 start span-left"></span>
-                <a href="#">Лечение</a>
+                <a href="pages\treatment.php">Лечение</a>
               </div>
               <div class="item"><span class="img-2 start span-right"></span>
-                <a href="#">Медосмотр</a>
+                <a href="pages\bodycheck.php">Медосмотр</a>
               </div>
               <div class="item"><span class="img-5 start span-left"></span>
-                <a href="#">Хирургия</a>
+                <a href="pages\surgery.php">Хирургия</a>
               </div>
               <div class="item1"><span class="img-3 start span-right"></span>
-              <a href="#">Диагностика</a>
+              <a href="pages\diagnostics.php">Диагностика</a>
               </div>
               <div class="item1"><span class="img-6 start span-left"></span>
-                <a href="#">Реабилитация</a>
+                <a href="pages\rehabilitation.php">Реабилитация</a>
               </div>
             </div>
             <div class="slide">
@@ -178,13 +178,13 @@ if (isset($_POST['search'])) {
                 <input type="radio" name="slider2" id="slider2_2">
                 <label for="slider2_2"></label>
               <div>
-                <img src="./assets/img/foto2.jpg">
+                <img src="./assets/img/foto2.png">
               </div>
                 <label for="slider2_3"></label>
                 <input type="radio" name="slider2" id="slider2_3">
                 <label for="slider2_3"></label>
               <div>
-                <img src="./assets/img/foto3.jpg">
+                <img src="./assets/img/foto3.png">
               </div>
                 <label for="slider2_4"></label>
             </div>
