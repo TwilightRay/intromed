@@ -1,4 +1,12 @@
-<?php session_start(); if (isset($_REQUEST['logout'])) {unset($_SESSION['user']); header('Location: /');} if (!$_SESSION['user']) {header('Location: signin.php');} ?>
+<?php session_start(); if (!$_SESSION['admin'] && !$_SESSION['user']) { header('Location: /'); }
+
+if ($_SESSION['user']) {
+  $users = $_SESSION['user'];
+} elseif ($_SESSION['admin']) {
+  $users = $_SESSION['admin'];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,8 +32,8 @@
                   <span class="results-img"></span>
                   <a class="results" href="#">Получить результаты</a>
                   <span class="sign-in-img"></span>
-                  <?php if ($_SESSION['user']): ?>
-                    <a class="profile" href="profile.php"><?=$_SESSION['user']['name']?></a>
+                  <?php if ($users): ?>
+                    <a class="profile" href="pages/profile.php"><?=$users['name']?></a>
                     <a class="logout" href="../assets/php/logout.php">Выйти</a>
                   <?php else: ?>
                     <a class="sign-in" href="#" onclick="openFormSignIn()">Войти</a>
@@ -33,7 +41,7 @@
                   <line class="hr"></line>
                 </div>
                 <div class="form-popup" id="signIn">
-                  <form action="assets/php/in.php" method="post" class="form-container">
+                  <form action="../assets/php/in.php" method="post" class="form-container">
                     <h2>Авторизация</h2>
                   <label for="email"><b>Е-мейл</b></label>
                     <input type="email" placeholder="Ваш е-мейл" name="email" required>
@@ -71,10 +79,10 @@
                     <ul>
                       <li>
                         <a href="#">О центре</a>
-                        <a href="#">Услуги и цены</a>
+                        <a href="services-and-prices.php">Услуги и цены</a>
                         <a href="#">Расписание</a>
                         <a href="#">Клиники</a>
-                        <a href="#">Врачи</a>
+                        <a href="doctors.php">Врачи</a>
                         <a href="#">Контакты</a>
                       </li>
                     </ul>
@@ -104,15 +112,15 @@
             <form action="" method="post">
               <div class="email">
                 <label for="">Email</label>
-                <input type="email" name="email" value="<?=$_SESSION['user']['email']?>">
+                <input type="email" name="email" value="<?=$users['email']?>">
               </div>
               <div class="name">
                 <label for="">ИМЯ</label>
-                <input type="text" name="name" value="<?=$_SESSION['user']['name']?>">
+                <input type="text" name="name" value="<?=$users['name']?>">
               </div>
               <div class="password">
                 <label for="">Пароль</label>
-                <input type="password" name="password" value="<?=$_SESSION['user']['password']?>" placeholder="Введите новый пароль">
+                <input type="password" name="password" value="<?=$users['password']?>" placeholder="Введите новый пароль">
               </div>
               <div class="response">
                 <p class="message"><?php echo $_SESSION['message']; unset($_SESSION['message']);?></p>

@@ -37,7 +37,7 @@ header{
 }
 
 .contacts{
-  /* position: fixed; */
+  position: fixed;
   background-color: white;
 }
 
@@ -68,20 +68,17 @@ header{
 
 .profile{
   margin-left: 20px;
+  margin-right: 32px;
 }
 
 .results{
   margin-left: 20px;
-  margin-right: 36px;
+  margin-right: 32px;
 }
 
 .sign-in{
     margin-left: 32px;
     margin-right: 125px;
-}
-
-.logout{
-    margin-left: 32px;
 }
 
 .location-img{

@@ -1,3 +1,12 @@
+<?php session_start();
+
+if ($_SESSION['user']) {
+  $users = $_SESSION['user'];
+} elseif ($_SESSION['admin']) {
+  $users = $_SESSION['admin'];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
@@ -10,7 +19,7 @@
   </head>
   <body>
     <div class="wrapper">
-      <div class="contact">
+      <div class="contacts">
         <div class="top">
           <p><?php echo $_SESSION['message']; unset($_SESSION['message']);?></p>
           <span class="location-img"></span>
@@ -20,16 +29,16 @@
           <span class="results-img"></span>
           <a class="results" href="#">Получить результаты</a>
           <span class="sign-in-img"></span>
-          <?php if ($_SESSION['user']): ?>
-            <p><?=$_SESSION['user']['name']?></p>
-            <a href="../assets/php/logout.php">Выйти</a>
+          <?php if ($users): ?>
+            <a class="profile" href="pages/profile.php"><?=$users['name']?></a>
+            <a class="logout" href="../assets/php/logout.php">Выйти</a>
           <?php else: ?>
             <a class="sign-in" href="#" onclick="openFormSignIn()">Войти</a>
           <?php endif; ?>
           <line class="hr"></line>
         </div>
         <div class="form-popup" id="signIn">
-          <form action="assets/php/in.php" method="post" class="form-container">
+          <form action="../assets/php/in.php" method="post" class="form-container">
             <h2>Авторизация</h2>
           <label for="email"><b>Е-мейл</b></label>
             <input type="email" placeholder="Ваш е-мейл" name="email" required>
@@ -45,7 +54,7 @@
           </form>
         </div>
         <div class="form-popup" id="signUp">
-          <form action="assets/php/up.php" method="post" class="form-container">
+          <form action="../assets/php/up.php" method="post" class="form-container">
             <h2>Регистрация</h2>
             <label for="name"><b>Имя</b></label>
             <input type="text" placeholder="Ваше имя" name="name" required>
@@ -69,14 +78,13 @@
                 <a href="\pages\services-and-prices.php">Услуги и цены</a>
                 <a href="#">Расписание</a>
                 <a href="#">Клиники</a>
-                <a href="#">Врачи</a>
+                <a href="doctors.php">Врачи</a>
                 <a href="#">Контакты</a>
               </li>
             </ul>
           </nav>
         </div>
       </div>
-
     <div class="container">
       <h2 class="prices">Цены на наши услуги</h2>
       <div class="dropdown">

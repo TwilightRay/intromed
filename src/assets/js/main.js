@@ -15,3 +15,11 @@ function openFormSignUp() {
 function closeFormSignUp() {
   document.getElementById("signUp").style.display = "none"
 }
+
+function openFormAdd() {
+  document.getElementById("add").style.display = "block"
+}
+
+function closeFormAdd() {
+  document.getElementById("add").style.display = "none"
+}

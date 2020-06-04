@@ -2,6 +2,13 @@
 
 session_start();
 
+if ($_SESSION['user']) {
+  $users = $_SESSION['user'];
+} elseif ($_SESSION['admin']) {
+  $users = $_SESSION['admin'];
+}
+
+
 $host = "localhost";
 $user = "mysql";
 $password = "mysql";
@@ -43,8 +50,8 @@ if (isset($_POST['search'])) {
                   <span class="results-img"></span>
                   <a class="results" href="#">Получить результаты</a>
                   <span class="sign-in-img"></span>
-                  <?php if ($_SESSION['user']): ?>
-                    <a class="profile" href="pages/profile.php"><?=$_SESSION['user']['name']?></a>
+                  <?php if ($users): ?>
+                    <a class="profile" href="pages/profile.php"><?=$users['name']?></a>
                     <a class="logout" href="../assets/php/logout.php">Выйти</a>
                   <?php else: ?>
                     <a class="sign-in" href="#" onclick="openFormSignIn()">Войти</a>
@@ -93,7 +100,7 @@ if (isset($_POST['search'])) {
                         <a href="\pages\services-and-prices.php">Услуги и цены</a>
                         <a href="#">Расписание</a>
                         <a href="#">Клиники</a>
-                        <a href="#">Врачи</a>
+                        <a href="\pages\doctors.php">Врачи</a>
                         <a href="#">Контакты</a>
                       </li>
                     </ul>
@@ -121,7 +128,7 @@ if (isset($_POST['search'])) {
                         <option value="Хирургия">
                         <option value="Реабилитация">
                       </datalist>
-                      <span class="search-img" name="search"></span>
+                      <input type="submit" class="search-img" name="search" value="">
                       <p class="search-prompt">Например, <a class="search-prompt-a" href="#">вызов врача на дом</a></p>
                     </div>
                   </form>

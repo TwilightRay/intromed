@@ -20,13 +20,15 @@
 
 .container{
   margin-left: 110px;
+  margin-top: 133px;
+  display: inline-block;
+  width: 1306px;
 }
 
 .prices{
   color: #0d0065;
   text-align: center;
-  justify-content: center;
-  margin: 30px;
+  margin: 30px auto;
 }
 
 .dropdown-list {
