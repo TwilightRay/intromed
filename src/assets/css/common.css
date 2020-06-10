@@ -13,7 +13,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 body{
-font-family:SFProDisplay, sans-serif;
+font-family:SFProDisplady, sans-serif;
 font-size: 20px;
 overflow-x: hidden;
 color: #06002E
@@ -35,7 +35,7 @@ align-items: center;
 }
 
 .doctors-img{
-  background-image: url('../img/doctors.jpg');
+  background-image: url('../img/doctors.png');
   background-position: top center;
   width: auto;
   height: 70vh;
@@ -758,14 +758,16 @@ section3{
 .list-doctors{
   margin-top: 98px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .box-doctors{
   border: solid 1px #06002e;
   border-radius: 8px;
-  width: 512px;
-  height: 128px;
-  margin-bottom: 32px
+  width: 1224px;
+  height: 151px;
+  margin: 12px;
 }
 
 .doctors{
@@ -775,19 +777,24 @@ section3{
 .pictures{
   border-radius: 8px;
   width: 96px;
-  height: 96px;
+  height: 111px;
+  margin-right: 15px;
 }
 
 .name-doctors{
-  margin: 8px;
+  margin: 0px 8px 8px 8px;
+  position: absolute;
 }
 
 .name-specialty{
-  margin: 8px;
+  margin: 34px 8px 8px 8px;
+  position: absolute;
 }
 
 .name-education{
-  margin: 8px;
+  margin: 68px 8px 8px 8px;
+  position: absolute;
+  width: 900px;
 }
 
 .add{
@@ -796,11 +803,13 @@ section3{
   border:none;
   -webkit-box-shadow:0 2px 6px rgba(34,40,49,.25);
   box-shadow:0 2px 6px rgba(34,40,49,.25);
-  border-radius:6px;
-  padding:8px 16px;
+  border-radius:15px;
+  padding:7px 22px;
   font-size:14px;
   line-height:17px;
   color:#eee;
+  position: absolute;
+  margin: -32px 0px 0px 1110px;
 }
 
 .del{
@@ -809,11 +818,18 @@ section3{
   border:none;
   -webkit-box-shadow:0 2px 6px rgba(34,40,49,.25);
   box-shadow:0 2px 6px rgba(34,40,49,.25);
-  border-radius:6px;
-  padding:8px 16px;
+  border-radius:15px;
+  padding:7px 22px;
   font-size:14px;
   line-height:17px;
   color:#eee
+}
+
+.btn-dock {
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+  margin: -100px 0px 0px auto;
 }
 
 .form-popup input[type='file']{

@@ -7,9 +7,7 @@ const browserSync   = require('browser-sync').create(), // Создаем лок
       rename        = require('gulp-rename'), // Подключаем библиотеку для переименования файлов
       sass          = require('gulp-sass'), // Подключаем Sass пакет
       pngquant      = require('imagemin-pngquant'), // Подключаем библиотеку для работы с png
-      webpack       = require('webpack'), // Подключаем Webpack
-      webpackConfig = require('./webpack.config.js'), // Указываем путь конфига
-      webpackStream = require('webpack-stream'); // Подключаем webpack-stream
+      rigger        = require('gulp-rigger');
 
 const paths = {
   root: './public',
@@ -43,10 +41,6 @@ const paths = {
     src: './src/assets/fonts/**/*.ttf',
     dest: './public/assets/fonts'
   },
-  upload: {
-    src: './src/assets/upload/*.jpg',
-    dest: './public/assets/upload'
-  },
   php: {
     src: './src/assets/php/*.php',
     dest: './public/assets/php'
@@ -56,6 +50,12 @@ const paths = {
 gulp.task('static', function () { // Создаём таск
   return gulp.src('./src/assets/static/**/*.*') // Берем источник
     .pipe(gulp.dest('./public/assets/static')) // Выгружаем сборку
+});
+
+gulp.task('rigger', async function () {
+  gulp.src('./src/pages/**/*.php')
+    .pipe(rigger())
+    .pipe(gulp.dest('./public'))
 });
 
 gulp.task('del', function () { // Создаем таск
@@ -108,17 +108,13 @@ gulp.task('fonts', function () { // Создаем таск
   .pipe(gulp.dest(paths.fonts.dest)) // Выгружаем сборку
 });
 
-gulp.task('upload', function () { // Создаем таск
-  return gulp.src(paths.upload.src) // Берем источник
-  .pipe(gulp.dest(paths.upload.dest)) // Выгружаем сборку
-});
-
 gulp.task('php', function () {
   return gulp.src(paths.php.src)
     .pipe(gulp.dest(paths.php.dest))
 });
 
 gulp.task('watch', function () {
+  gulp.watch('src/**/*.php', gulp.parallel('rigger'));
   gulp.watch(paths.templates.src, gulp.parallel('templates')); // Наблюдаем за index
   gulp.watch(paths.pages.src, gulp.parallel('pages')); // Наблюдаем за php файлами
   gulp.watch(paths.styles.src, gulp.parallel('styles')); // Наблюдаем за SASS файлами
@@ -126,7 +122,6 @@ gulp.task('watch', function () {
   gulp.watch(paths.modules.src, gulp.parallel('modules')); // Наблюдаем за модулями
   gulp.watch(paths.images.src, gulp.parallel('images')); // Наблюдаем за images
   gulp.watch(paths.fonts.src, gulp.parallel('fonts')); // Наблюдаем за fonts
-  gulp.watch(paths.upload.src, gulp.parallel('upload')); // Наблюдаем за fonts
   gulp.watch(paths.php.src, gulp.parallel('php')); // Наблюдаем за php
   gulp.watch('./src/assets/static/**/*.*', gulp.parallel('static'));
 });
@@ -139,4 +134,4 @@ gulp.task('browser-sync', function () { // Создаем таск browser-sync
   browserSync.watch(paths.src + '/**/*.*', browserSync.reload); // Перезагрузка при изменении
 });
 
-gulp.task('default', gulp.series('del', gulp.parallel('static' , 'templates', 'pages', 'styles', 'scripts', 'modules', 'images', 'fonts', 'upload', 'php'), gulp.parallel('watch', 'browser-sync')));
+gulp.task('default', gulp.series('del', gulp.parallel('static' , 'rigger', 'templates', 'pages', 'styles', 'scripts', 'modules', 'images', 'fonts', 'php'), gulp.parallel('watch', 'browser-sync')));

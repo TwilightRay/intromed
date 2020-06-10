@@ -8,7 +8,6 @@ if ($_SESSION['user']) {
   $users = $_SESSION['admin'];
 }
 
-
 $host = "localhost";
 $user = "mysql";
 $password = "mysql";
@@ -17,6 +16,14 @@ $database = "intromed";
 $link = mysqli_connect($host, $user, $password, $database);
 
 if (isset($_POST['search'])) {
+  $search = filter_var(trim($_REQUEST['search']),FILTER_SANITIZE_STRING);
+  $query = 'SELECT * FROM `service` WHERE `name` LIKE "%'.$search.'%"';
+  $data = $link->query($query);
+  $service = mysqli_fetch_assoc($data);
+  header("Location: ".$service['url']);
+  }
+
+if (isset($_POST['search-img'])) {
   $search = filter_var(trim($_REQUEST['search']),FILTER_SANITIZE_STRING);
   $query = 'SELECT * FROM `service` WHERE `name` LIKE "%'.$search.'%"';
   $data = $link->query($query);
@@ -43,16 +50,20 @@ if (isset($_POST['search'])) {
             <div class="wrapper">
               <div class="contacts">
                 <div class="top">
-                  <span class="location-img"></span>
-                  <a class="location" href="#">Адреса медицинских центров</a>
-                  <span class="phone-img"></span>
-                  <a class="phone" href="#"> +7 846 247 55 33</a>
-                  <span class="results-img"></span>
-                  <a class="results" href="#">Получить результаты</a>
-                  <span class="sign-in-img"></span>
+                  <div class="">
+                    <span class="location-img"></span>
+                    <a class="location" href="#">Адреса медицинских центров</a>
+                  </div>
+                  <div class="">
+                    <span class="phone-img"></span>
+                    <a class="phone" href="#"> +7 846 247 55 33</a>
+                  </div>
                   <?php if ($users): ?>
-                    <a class="profile" href="pages/profile.php"><?=$users['name']?></a>
-                    <a class="logout" href="../assets/php/logout.php">Выйти</a>
+                    <div class="">
+                      <span class="sign-in-img"></span>
+                      <a class="profile" href="pages/profile.php"><?=$users['name']?></a>
+                      <a class="logout" href="../assets/php/logout.php">Выйти</a>
+                    </div>
                   <?php else: ?>
                     <a class="sign-in" href="#" onclick="openFormSignIn()">Войти</a>
                   <?php endif; ?>
@@ -82,7 +93,7 @@ if (isset($_POST['search'])) {
                   <label for="email"><b>Е-мейл</b></label>
                     <input type="email" placeholder="Ваш е-мейл" name="email" required>
                   <label for="password"><b>Пароль</b></label>
-                    <input type="password" placeholder="Ваш Пароль" name="password" required
+                    <input type="password" placeholder="Ваш Пароль" name="password" required>
                   <p><?php echo $_SESSION['message']; unset($_SESSION['message']);?></p>
                   <button type="submit" class="btn">Зарегистрироваться</button>
                   <button type="button" class="btn cancel" onclick="closeFormSignUp()">Закрыть</button>
@@ -128,7 +139,7 @@ if (isset($_POST['search'])) {
                         <option value="Хирургия">
                         <option value="Реабилитация">
                       </datalist>
-                      <input type="submit" class="search-img" name="search" value="">
+                      <input type="submit" class="search-img" name="search-img" value="">
                       <p class="search-prompt">Например, <a class="search-prompt-a" href="#">вызов врача на дом</a></p>
                     </div>
                   </form>

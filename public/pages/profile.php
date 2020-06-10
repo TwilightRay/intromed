@@ -25,16 +25,20 @@ if ($_SESSION['user']) {
             <div class="wrapper">
               <div class="contacts">
                 <div class="top">
-                  <span class="location-img"></span>
-                  <a class="location" href="#">Адреса медицинских центров</a>
-                  <span class="phone-img"></span>
-                  <a class="phone" href="#"> +7 846 247 55 33</a>
-                  <span class="results-img"></span>
-                  <a class="results" href="#">Получить результаты</a>
-                  <span class="sign-in-img"></span>
+                  <div class="">
+                    <span class="location-img"></span>
+                    <a class="location" href="#">Адреса медицинских центров</a>
+                  </div>
+                  <div class="">
+                    <span class="phone-img"></span>
+                    <a class="phone" href="#"> +7 846 247 55 33</a>
+                  </div>
                   <?php if ($users): ?>
-                    <a class="profile" href="pages/profile.php"><?=$users['name']?></a>
-                    <a class="logout" href="../assets/php/logout.php">Выйти</a>
+                    <div class="">
+                      <span class="sign-in-img"></span>
+                      <a class="profile" href="pages/profile.php"><?=$users['name']?></a>
+                      <a class="logout" href="../assets/php/logout.php">Выйти</a>
+                    </div>
                   <?php else: ?>
                     <a class="sign-in" href="#" onclick="openFormSignIn()">Войти</a>
                   <?php endif; ?>
@@ -109,13 +113,13 @@ if ($_SESSION['user']) {
           <div class="user">
             <h2 class="title-profil">Личные данные</h2>
             <p style="text-align: center;">Основная информация, которую вы используете на этом сайте.</p>
-            <form action="" method="post">
+            <form action="../assets/php/edit.php" method="post">
               <div class="email">
                 <label for="">Email</label>
                 <input type="email" name="email" value="<?=$users['email']?>">
               </div>
               <div class="name">
-                <label for="">ИМЯ</label>
+                <label for="">Имя</label>
                 <input type="text" name="name" value="<?=$users['name']?>">
               </div>
               <div class="password">

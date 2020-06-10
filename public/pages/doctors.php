@@ -42,16 +42,20 @@ if (isset($_GET["delete"])) {
               <div class="wrapper">
                 <div class="contacts">
                   <div class="top">
-                    <span class="location-img"></span>
-                    <a class="location" href="#">Адреса медицинских центров</a>
-                    <span class="phone-img"></span>
-                    <a class="phone" href="#"> +7 846 247 55 33</a>
-                    <span class="results-img"></span>
-                    <a class="results" href="#">Получить результаты</a>
-                    <span class="sign-in-img"></span>
+                    <div class="">
+                      <span class="location-img"></span>
+                      <a class="location" href="#">Адреса медицинских центров</a>
+                    </div>
+                    <div class="">
+                      <span class="phone-img"></span>
+                      <a class="phone" href="#"> +7 846 247 55 33</a>
+                    </div>
                     <?php if ($users): ?>
-                      <a class="profile" href="pages/profile.php"><?=$users['name']?></a>
-                      <a class="logout" href="../assets/php/logout.php">Выйти</a>
+                      <div class="">
+                        <span class="sign-in-img"></span>
+                        <a class="profile" href="pages/profile.php"><?=$users['name']?></a>
+                        <a class="logout" href="../assets/php/logout.php">Выйти</a>
+                      </div>
                     <?php else: ?>
                       <a class="sign-in" href="#" onclick="openFormSignIn()">Войти</a>
                     <?php endif; ?>
@@ -110,19 +114,21 @@ if (isset($_GET["delete"])) {
       </header>
       <main>
         <div class="wrapper">
+          <a class="add" href="#" onclick="openFormAdd()">Добавить</a>
           <div class="list-doctors">
             <?php while($doctors = mysqli_fetch_assoc($data)): ?>
               <div class="box-doctors">
                 <div class="doctors">
                   <?php echo "<img class='pictures' src='".$doctors['pictures']."'>"?>
-                  <span class="name-doctors">ФИО: name<?=$doctors['name']?></span>
-                  <span class="name-specialty">Специальность: specialty<?=$doctors['specialty']?></span>
-                  <span class="name-education">Образование: education<?=$doctors['education']?></span>
+                  <span class="name-doctors">ФИО: <?=$doctors['name']?></span>
+                  <span class="name-specialty">Специальность: <?=$doctors['specialty']?></span>
+                  <span class="name-education">Образование: <?=$doctors['education']?></span>
                   <?php if ($_SESSION['admin']): ?>
-                    <a class="add" href="#" onclick="openFormAdd()">Добавить</a>
+                  <div class="btn-dock">
                     <a class="del" href="?delete=<?=$doctors['id']?>">Удалить</a>
-                  <?php endif; ?>
+                  </div>
                 </div>
+                <?php endif; ?>
               </div>
             <?php endwhile; ?>
           </div>

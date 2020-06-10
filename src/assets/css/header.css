@@ -12,7 +12,7 @@ body,ul{
   color: #06002E
 }
 
-ul{
+.container ul{
   list-style-type:none
 }
 
@@ -41,6 +41,10 @@ header{
   background-color: white;
 }
 
+.top{
+  display: flex;
+}
+
 .top a {
   margin-bottom: 17px;
   font-size: 14px;
@@ -56,14 +60,18 @@ header{
   margin-top: 16px;
 }
 
+.top .sign-in{
+  margin-left: auto;
+}
+
 .location{
   margin-left: 142px;
   margin-right: 36px;
 }
 
 .phone{
-    margin-left: 20px;
-    margin-right: 520px;
+  margin-left: 20px;
+  margin-right: 657px;
 }
 
 .profile{

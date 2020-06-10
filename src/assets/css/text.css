@@ -1,0 +1,12 @@
+.container-text{
+  margin-top: 60px;
+  margin-left: 15px;
+}
+
+.container-text ul{
+  list-style-type: circle;
+}
+
+.container-text li{
+  margin-bottom: 10px;
+}
