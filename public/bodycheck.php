@@ -18,6 +18,7 @@ if ($_SESSION['user']) {
   <title>IntroMed</title>
   <link rel="stylesheet" href="../assets/css/header.min.css"/>
   <link rel="stylesheet" href="../assets/css/common.min.css"/>
+  <link rel="stylesheet" href="../assets/css/text.min.css"/>
   <link rel="stylesheet" href="../assets/css/signin.min.css">
   <link rel="shortcut icon" href="/assets/static/favicon.ico" type="image/x-icon">
 </head>
@@ -96,5 +97,34 @@ if ($_SESSION['user']) {
             </div>
           </div>
   </header>
+  <main>
+    <div class="wrapper">
+      <div class="container">
+        <h3 class="container-text">Медосмотры</h3>
+  <p class="container-text1">
+    <div>
+    В клинико-диагностическом центре «IntroMed», проводятся все виды медицинских осмотров:
+    <p class="container-text2">
+      - медицинские осмотры для устройства на работу (предварительные медосмотры)  </p>
+    <p class="container-text2">
+      - периодические медицинские осмотры (в том числе работников с вредными условиями труда)  </p>
+    <p class="container-text2">
+      - шоферская комиссия с участием комиссии психиатров и наркологов  </p>
+    <p class="container-text2">
+      - оружейная комиссия (экспертиза на право владения оружием)  </p>
+    <p class="container-text2">
+      - оформление медицинских справок в бассейн  </p>
+    <p class="container-text2">
+      - оформление мед. заключения формы 086/у для поступающих в высшие
+      или средне-специальные учебные заведения   </p>
+    <p class="container-text2">
+      - санаторно-курортные карты (072у, 070у)  </p>
+    <p class="container-text2">
+      - оформление санитарных книжек  </p>
+
+      </div>
+      </div>
+    </div>
+  </main>
 </body>
 </html>

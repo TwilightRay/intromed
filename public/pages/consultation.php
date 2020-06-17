@@ -19,6 +19,7 @@ if ($_SESSION['user']) {
   <link rel="stylesheet" href="../assets/css/header.min.css"/>
   <link rel="stylesheet" href="../assets/css/common.min.css"/>
   <link rel="stylesheet" href="../assets/css/signin.min.css">
+  <link rel="stylesheet" href="../assets/css/text.min.css">
   <link rel="shortcut icon" href="/assets/static/favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -98,7 +99,27 @@ if ($_SESSION['user']) {
   </header>
   <main>
     <div class="wrapper">
-      
+      <div class="container-text">
+        <h3 class="container-text">Консультация специалистов</h3>
+        <p class="container-text1">В состав клинико-диагностического центра «IntroMed» входит мощное
+          амбулаторно-поликлиническое подразделение, в котором проводят прием
+          пациентов врачи более чем по 50 специальностям.</p>
+          <p class="container-text1">
+          Прием ведут квалифицированные специалисты: среди них более 60 врачей
+          высшей категории, 30 кандидатов медицинских наук, 4 доктора
+          медицинских наук.</p>
+          <p class="container-text1">
+            Кроме обычного приема и назначения лечения, многие доктора проводят
+          лечение с применением различных манипуляций и аппаратов.</p>
+          <h4 class="container-text1">Что дает консультация:</h4>
+        <p class="container-text1">- Консультация с лечащим врачом по ранее назначенному лечению.
+        <p class="container-text1">- Интерпретация результатов обследования.</p>
+        <p class="container-text1">- Получение второго мнения ведущих специалистов клиники "IntroMed".</p>
+        <p class="container-text1">- Ответы специалистов разных профилей на вопросы о состоянии здоровья.</p>
+        <p class="container-text1">- Получение рекомендаций доктора на основании результатов анализа медицинских данных.</p>
+        <p class="container-text1">- Назначение наиболее подходящего лечения,
+        направленного на полное восстановление здоровья.</p>
+      </div>
     </div>
   </main>
 </body>
