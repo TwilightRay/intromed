@@ -44,8 +44,23 @@ const paths = {
   php: {
     src: './src/assets/php/*.php',
     dest: './public/assets/php'
+  },
+  upload: {
+    src: './src/assets/upload/**/*.*',
+    dest: './public/assets/upload'
   }
 };
+
+gulp.task('upload', function () { // Создаем таск
+  return gulp.src('./src/assets/upload/**/*.*') // Берем источник
+    .pipe(imagemin({ // Сжимаем изображения
+      progressive: true,
+      interlaced: true,
+      svgoPlugins: [{removeViewBox: false}],
+      use: [pngquant()]
+    }))
+    .pipe(gulp.dest('./public/assets/upload')) // Выгружаем сборку
+});
 
 gulp.task('static', function () { // Создаём таск
   return gulp.src('./src/assets/static/**/*.*') // Берем источник
@@ -124,6 +139,7 @@ gulp.task('watch', function () {
   gulp.watch(paths.fonts.src, gulp.parallel('fonts')); // Наблюдаем за fonts
   gulp.watch(paths.php.src, gulp.parallel('php')); // Наблюдаем за php
   gulp.watch('./src/assets/static/**/*.*', gulp.parallel('static'));
+  gulp.watch('./src/assets/upload/**/*.*', gulp.parallel('upload'));
 });
 
 gulp.task('browser-sync', function () { // Создаем таск browser-sync
@@ -134,4 +150,4 @@ gulp.task('browser-sync', function () { // Создаем таск browser-sync
   browserSync.watch(paths.src + '/**/*.*', browserSync.reload); // Перезагрузка при изменении
 });
 
-gulp.task('default', gulp.series('del', gulp.parallel('static' , 'rigger', 'templates', 'pages', 'styles', 'scripts', 'modules', 'images', 'fonts', 'php'), gulp.parallel('watch', 'browser-sync')));
+gulp.task('default', gulp.series('del', gulp.parallel('upload', 'static' , 'rigger', 'templates', 'pages', 'styles', 'scripts', 'modules', 'images', 'fonts', 'php'), gulp.parallel('watch', 'browser-sync')));
