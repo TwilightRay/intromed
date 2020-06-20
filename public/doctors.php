@@ -114,7 +114,9 @@ if (isset($_GET["delete"])) {
       </header>
       <main>
         <div class="wrapper">
+          <?php if ($_SESSION['admin']): ?>
           <a class="add" href="#" onclick="openFormAdd()">Добавить</a>
+          <?php endif; ?>
           <div class="list-doctors">
             <?php while($doctors = mysqli_fetch_assoc($data)): ?>
               <div class="box-doctors">
